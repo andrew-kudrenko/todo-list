@@ -55,4 +55,10 @@
       &:active { color: var(--red); }
     }
   }
+
+  &__loader-wrapper {
+    text-align: center;
+
+    & .loader { font-size: 2.5rem; }
+  }
 }

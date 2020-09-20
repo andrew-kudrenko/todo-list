@@ -4,10 +4,13 @@ import { getRecords as getFromDB, addRecord as addToDB, removeRecord as removeFr
 
 export const useRecordState = (): RecordState => {
   const [records, setRecords] = useState<Record[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
 
   const updateRecords = async () => {
+    setLoading(true)
     const data = await getFromDB()
     setRecords(data)
+    setLoading(false)
   }
   
   const addRecord = async (record: Record) => {
@@ -21,5 +24,5 @@ export const useRecordState = (): RecordState => {
 
   useEffect(() => { updateRecords() }, [])
 
-  return { records, addRecord, removeRecord }
+  return { records, loading, addRecord, removeRecord }
 }

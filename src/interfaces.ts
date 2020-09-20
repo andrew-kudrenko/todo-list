@@ -9,7 +9,8 @@ export interface Record {
 
 export interface RecordListProps {
   records: Record[]
-  remove: RemoveRecordCallback
+  remove: RemoveRecordCallback,
+  loading: boolean
 }
 
 export interface RecordListItemProps extends Record {
@@ -25,6 +26,7 @@ export interface RecordState {
   records: Record[]
   addRecord: AddRecordCallback
   removeRecord: RemoveRecordCallback
+  loading: boolean
 }
 
 export interface AddTaskMenuProps {

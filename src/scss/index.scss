@@ -3,6 +3,7 @@
 @import 'app';
 @import 'record-list';
 @import 'add-task-menu';
+@import 'loader';
 
 *,
 ::before,
@@ -31,7 +32,7 @@
 
   --trans-dur-quickly: .2s;
   --trans-dur-regular: .35s;
-  --trans-dur-slowly: .75s;
+  --trans-dur-slowly: .85s;
 
   --red: #e22523;
 }

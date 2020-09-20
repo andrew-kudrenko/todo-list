@@ -4,7 +4,7 @@ import { useRecordState } from './hooks/useRecordState'
 import { MainPage } from './pages/MainPage'
 
 export const App: React.FC = () => {
-  const { records, addRecord, removeRecord } = useRecordState()
+  const { records, addRecord, removeRecord, loading } = useRecordState()
 
   return (
     <Layout>
@@ -12,6 +12,7 @@ export const App: React.FC = () => {
         records={records}
         add={addRecord}
         remove={removeRecord}
+        loading={loading}
       />
     </Layout>
   )
