@@ -39,6 +39,7 @@ export const AddTaskMenu: React.FC<AddTaskMenuProps> = ({ add }) => {
           className="add-task-menu__editor-input"
           onChange={changeHandler}
           value={title}
+          placeholder="Новая задача"
         />
         <AddTaskButton callback={addHandler} disabled={disabled} />
       </div>
