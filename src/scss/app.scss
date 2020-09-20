@@ -1,0 +1,41 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--app-background-color);
+
+  &__header {
+    height: 50px;
+    background-color: var(--primary-color);
+
+    @include box-shadow(1px);
+
+    & .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    &-logo {
+      display: flex;
+      align-items: center;
+      font: { size: 1.75rem; weight: 700; }
+      color: var(--font-color-light);
+
+      &__img {
+        width: 35px;
+        height: 40px;
+        margin-right: .5rem;
+
+        background: {
+          image: url('https://www.vippng.com/png/full/3-34482_calendar-icon.png');
+          size: contain;
+        }
+      }
+    }
+  }
+
+  &__main,
+  &__header {
+    .container { margin: 0 auto; }
+  }
+}

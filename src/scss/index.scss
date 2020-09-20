@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+@import 'mixins';
+@import 'app';
+@import 'record-list';
+@import 'add-task-menu';
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: inherit;
+}
+
+:root {
+  box-sizing: border-box;
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 1rem;
+  }
+
+  --app-background-color: #fafafa;
+  --record-background-color: #fff;
+  --primary-color: #c7000a;
+  --divider-color: #ccc;
+  --disabled-color: #eee;
+
+  --font-color-dark: #333;
+  --font-color-light: #fff;
+
+  --trans-dur-quickly: .2s;
+  --trans-dur-regular: .35s;
+  --trans-dur-slowly: .75s;
+
+  --red: #e22523;
+}
+
+.container { 
+  max-width: 1000px; 
+  padding: { left: 1rem; right: 1rem; }
+}
+
+.header { margin: { top: .5em; bottom: .5em; } }
+
+.italic { font-style: italic; } 
+
+.text-center { text-align: center; }

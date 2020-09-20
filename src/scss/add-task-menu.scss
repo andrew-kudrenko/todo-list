@@ -1,0 +1,76 @@
+.add-task-menu {  
+  margin-bottom: 1rem;
+
+  &__editor {
+    display: flex;
+    align-items: center;
+
+    &-input {
+      width: calc(100% - 150px);
+      padding: .75rem;
+      margin-right: 1rem;
+
+      outline: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid var(--divider-color);
+
+      font-size: 1.25rem;
+
+      transition: {
+        property: border box-shadow;
+        duration: var(--trans-dur-regular);
+      }
+      
+      &:focus { border-color: var(--primary-color); }
+    }
+  }
+
+  &__button {
+    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    padding: .75rem;
+    margin-bottom: 1rem;
+  
+    border-radius: 5px;
+  
+    color: var(--font-color-light);
+    border: none;
+    background-color: var(--red);  
+    outline: none;
+
+    transition: {
+      property: background-color color;
+      duration: var(--trans-dur-regular);
+    }
+    
+    @include box-shadow(0px);
+  
+    &:hover {
+      color: var(--red);
+      background-color: var(--font-color-light);
+      cursor: pointer;
+      transition: {
+        property: box-shadow transform;
+        duration: var(--trans-dur-regular);
+      }
+
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: var(--disabled-color);
+      color: var(--font-color-dark);
+      cursor: not-allowed;
+      @include box-shadow(1px);
+    }
+
+    &-icon { 
+      margin-right: .5rem;
+      font-size: 1.5rem; 
+    }
+  }
+}

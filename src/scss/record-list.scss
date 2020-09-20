@@ -1,0 +1,58 @@
+.record-list {
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    border-radius: 5px;
+    background-color: var(--record-background-color);
+    transition: {
+      property: box-shadow transform; 
+      duration: var(--trans-dur-quickly);
+    } 
+
+    @include box-shadow(1px);
+
+    &:hover { 
+      cursor: pointer;
+      transform: translateY(-3px);
+      @include box-shadow(3px); 
+
+      & .record-list-item__title { 
+        transition: color var(--trans-dur-quickly);
+        color: var(--primary-color); 
+      }
+    }
+
+    &__index {
+      margin-right: .5rem;
+
+      &::after {
+        content: '.';
+      }
+    }
+
+    &__date { 
+      margin-right: 1rem; 
+      font-weight: lighter;
+    }
+
+    &__button {
+      padding: .25rem;
+      font-size: 1.25rem;
+      border-radius: 50%;
+
+      transition: {
+        property: background-color color;
+        duration: var(--trans-dur-regular);
+      }
+
+      &:hover { background-color: rgba(0, 0, 0, .05); }
+
+      &:active { color: var(--red); }
+    }
+  }
+}

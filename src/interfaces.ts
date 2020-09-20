@@ -1,7 +1,7 @@
 import { RemoveRecordCallback, AddRecordCallback } from './types'
 
 export interface Record {
-  id: string
+  _id: string
   title: string
   date: string
   completed: boolean
@@ -32,5 +32,6 @@ export interface AddTaskMenuProps {
 }
 
 export interface AddTaskButtonProps {
-  callback: () => void 
+  callback: () => void
+  disabled: boolean
 }

@@ -9,7 +9,8 @@ export const RecordList: React.FC<RecordListProps> = ({ records, remove }) =>
         <RecordListItem 
           {...r} 
           index={index + 1} 
-          remove={remove} 
+          remove={remove}
+          key={r._id}
         />
       )
     }

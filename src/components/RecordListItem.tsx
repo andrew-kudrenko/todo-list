@@ -18,7 +18,7 @@ export const RecordListItem: React.FC<RecordListItemProps> = props => {
         </span>
         <i
           className="record-list-item__button fa fa-trash-o"
-          onClick={props.remove.bind(null, props.id)}
+          onClick={props.remove.bind(null, props._id)}
         ></i>
       </div>
     </li>
