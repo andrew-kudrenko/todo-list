@@ -13,12 +13,10 @@ export const useRecordState = (): RecordState => {
   const addRecord = async (record: Record) => {
     await addToDB(record)
     await updateRecords()
-    setRecords([record, ...records])
   }
   const removeRecord = async (id: string) => {
     await removeFromDB(id)
     await updateRecords()
-    setRecords(records.filter(r => r._id !== id))
   }
 
   useEffect(() => { updateRecords() }, [])

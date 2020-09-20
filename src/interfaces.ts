@@ -32,6 +32,6 @@ export interface AddTaskMenuProps {
 }
 
 export interface AddTaskButtonProps {
-  callback: () => void
+  callback: (() => void) | (() => Promise<void>)
   disabled: boolean
 }
