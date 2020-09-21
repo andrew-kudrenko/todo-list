@@ -4,7 +4,7 @@ type HTTPMethod = 'GET' | 'POST' | 'DELETE' | 'PUT' | 'PATCH' | 'OPTIONS'
 
 const apiUri = 'https://todo-list-bend.herokuapp.com'
 
-async function request<T = unknown>(endPoint: string, method: HTTPMethod = 'GET', body?: any): Promise<T> {
+async function request(endPoint: string, method: HTTPMethod = 'GET', body?: any): Promise<any> {
   try {
     const uri = `${apiUri}/${endPoint}`
 
@@ -23,8 +23,8 @@ async function request<T = unknown>(endPoint: string, method: HTTPMethod = 'GET'
 
     return await response.json()
   } catch (e) {
-    console.log(e)
-    throw new Error('Ошибка при обращении к базе данных')
+    // throw new Error(`Ошибка при обращении к базе данных. ${e}`)
+    console.warn(`Ошибка при обращении к базе данных. ${e}`)
   }
 }
 

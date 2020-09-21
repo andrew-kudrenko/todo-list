@@ -38,4 +38,6 @@
   &__header {
     .container { margin: 0 auto; }
   }
+
+  &__main .header { cursor: pointer; }
 }

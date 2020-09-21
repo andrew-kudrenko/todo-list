@@ -48,6 +48,8 @@
 
 .text-center { text-align: center; }
 
+.primary-text { color: var(--primary-color); }
+
 @media (min-width: 1200px) {
   .container { max-width: 800px; }
 }

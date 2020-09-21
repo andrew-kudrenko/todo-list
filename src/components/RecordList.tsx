@@ -8,7 +8,7 @@ export const RecordList: React.FC<RecordListProps> = ({ records, remove, loading
     {
       loading
         ? <div className="record-list__loader-wrapper"><Loader /></div>
-        : records.length
+        : records?.length
           ? records.map((r, index) =>
             <RecordListItem
               {...r}
