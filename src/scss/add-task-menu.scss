@@ -1,14 +1,22 @@
 .add-task-menu {  
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+
+  // Если оставить заголовок "Список дел", правило ниже нормализует отступы
+  .header + & { margin-top: 0; }
 
   &__editor {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
     &-input {
-      width: calc(100% - 150px);
+      width: calc(100%);
       padding: .75rem;
-      margin-right: 1rem;
+      margin: {
+        bottom: 1rem;
+        right: 1rem;
+      }
 
       outline: none;
       background-color: transparent;
@@ -33,7 +41,7 @@
     align-items: center;
   
     padding: .75rem;
-    margin-bottom: 1rem;
+    margin-bottom: .25rem;
   
     border-radius: 5px;
   
@@ -72,5 +80,23 @@
       margin-right: .5rem;
       font-size: 1.5rem; 
     }
+  }
+}
+
+@media (min-width: 600px) {
+  .add-task-menu {
+    &__editor {
+      flex-direction: row;
+
+      &-input {
+        width: calc(100% - 150px);
+        padding: .75rem;
+        margin: {
+          bottom: 1rem;
+        }
+      }
+    }
+    
+    &__button { margin-bottom: 0; }
   }
 }

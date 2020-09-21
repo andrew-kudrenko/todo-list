@@ -4,7 +4,7 @@ import { RecordListItemProps } from '../interfaces'
 export const RecordListItem: React.FC<RecordListItemProps> = props => {
   return (
     <li className="record-list-item">
-      <div>
+      <div className="record-list-item__wrapper">
         <strong className="record-list-item__index">
           {props.index}
         </strong>
@@ -12,7 +12,7 @@ export const RecordListItem: React.FC<RecordListItemProps> = props => {
           {props.title}
         </span>
       </div>
-      <div>
+      <div className="record-list-item__wrapper">
         <span className="record-list-item__date italic">
           {props.date}
         </span>

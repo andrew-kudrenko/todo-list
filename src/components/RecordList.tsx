@@ -3,7 +3,7 @@ import { RecordListProps } from '../interfaces'
 import { Loader } from './Loader'
 import { RecordListItem } from './RecordListItem'
 
-export const RecordList: React.FC<RecordListProps> = ({ records, remove, loading }) =>
+export const RecordList: React.FC<RecordListProps> = ({ records, remove, loading = false }) =>
   <ul className="record-list">
     {
       loading

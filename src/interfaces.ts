@@ -1,4 +1,4 @@
-import { RemoveRecordCallback, AddRecordCallback } from './types'
+import { RemoveRecordCallback, AddRecordCallback   } from './types'
 
 export interface Record {
   _id: string
@@ -9,8 +9,8 @@ export interface Record {
 
 export interface RecordListProps {
   records: Record[]
-  remove: RemoveRecordCallback,
-  loading: boolean
+  remove: RemoveRecordCallback
+  loading?: boolean
 }
 
 export interface RecordListItemProps extends Record {
@@ -27,6 +27,12 @@ export interface RecordState {
   addRecord: AddRecordCallback
   removeRecord: RemoveRecordCallback
   loading: boolean
+}
+
+export interface LocalStorageRecordState {
+  records: Record[]
+  addRecord: AddRecordCallback
+  removeRecord: RemoveRecordCallback
 }
 
 export interface AddTaskMenuProps {
