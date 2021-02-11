@@ -1,0 +1,30 @@
+$side-aliases: ("top": "t", "right": "r", "bottom": "b", "left": "l");
+$indent-limits: ("min": 1, "max": 5);
+$indent-aliases: ("margin": "m", "padding": "p");
+$indent-value: .5rem;
+
+$header-sizes: (
+  calc(1.375rem + 1.5vw), 
+  calc(1.325rem + .9vw), 
+  calc(1.3rem + .6vw), 
+  calc(1.275rem + .3vw),
+  1.25rem,
+  1rem
+);
+
+$colors: (
+  "primary": #8457c7, 
+  "secondary": #ffdf6d, 
+  "tertiary": #ffbda0, 
+  "quarternary": #c2e7ee
+);
+
+$text-colors: (
+  "primary": #333,
+  "secondary": #ccc,
+  "accent": #fefefe
+);
+
+$text-align-variants: ("top", "right", "left", "center", "justify");
+
+$transition-durations: ("slowly": .5, "regulary": .3, "rapidly": .15);

@@ -1,14 +1,18 @@
-import React from 'react' 
-import ReactDOM from 'react-dom' 
+import React from 'react'
+import ReactDOM from 'react-dom'
+import * as serviceWorker from './serviceWorker'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './scss/index.scss'
-import { App } from './App' 
-import * as serviceWorker from './serviceWorker' 
+import { App } from './components/app/App'
 
-const app: React.ReactElement = 
+const app: React.ReactElement = (
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>
+)
 
-ReactDOM.render(app, document.getElementById('root')) 
+ReactDOM.render(app, document.getElementById('root'))
 
-serviceWorker.unregister() 
+serviceWorker.unregister()

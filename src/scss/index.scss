@@ -4,13 +4,14 @@
 @import 'record-list';
 @import 'add-task-menu';
 @import 'loader';
+@import 'auth-page.scss';
 
 *,
 ::before,
 ::after {
   margin: 0;
   padding: 0;
-  
+
   box-sizing: inherit;
 }
 
@@ -30,26 +31,42 @@
   --font-color-dark: #333;
   --font-color-light: #fff;
 
-  --trans-dur-quickly: .2s;
-  --trans-dur-regular: .35s;
-  --trans-dur-slowly: .85s;
+  --trans-dur-quickly: 0.2s;
+  --trans-dur-regular: 0.35s;
+  --trans-dur-slowly: 0.85s;
 
   --red: #e22523;
 }
 
-.container { 
-  max-width: 600px; 
-  padding: { left: 1rem; right: 1rem; }
+.container {
+  max-width: 600px;
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
 }
 
-.header { margin: { top: .5em; bottom: .5em; } }
+.header {
+  margin: {
+    top: 0.5em;
+    bottom: 0.5em;
+  }
+}
 
-.italic { font-style: italic; } 
+.italic {
+  font-style: italic;
+}
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
-.primary-text { color: var(--primary-color); }
+.primary-text {
+  color: var(--primary-color);
+}
 
 @media (min-width: 1200px) {
-  .container { max-width: 800px; }
+  .container {
+    max-width: 800px;
+  }
 }

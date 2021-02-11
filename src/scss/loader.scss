@@ -4,22 +4,22 @@
   animation: {
     duration: var(--trans-dur-slowly);
     name: loader-rotating;
-    iteration-count: infinite; 
+    iteration-count: infinite;
     direction: normal;
     timing-function: linear;
   }
 }
 
 @keyframes loader-rotating {
-  0% { 
+  0% {
     opacity: 1;
-    transform: rotateZ(0deg) 
+    transform: rotateZ(0deg);
   }
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
-  100% { 
+  100% {
     opacity: 1;
-    transform: rotateZ(360deg) 
+    transform: rotateZ(360deg);
   }
 }
