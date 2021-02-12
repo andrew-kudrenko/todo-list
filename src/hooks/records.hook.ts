@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import fire from 'firebase'
-import { v4 as uuid } from 'uuid'
 import {
   CrudState,
   errorsDefaultValues,
@@ -26,7 +25,13 @@ export function useRecords(user: Optional<Nullable<fire.User>>) {
       recordsRef.on('value', snapshot => {
         try {
           setLoading({ ...loading, read: true })
-          setRecords([...Object.values(snapshot.val() as Array<any>)])
+          const data = snapshot.val()
+          setRecords(
+            (Object.keys(data) as Array<any>).map(key => ({
+              ...data[key],
+              id: key,
+            }))
+          )
           setLoading({ ...loading, read: false })
         } catch (e) {
           setErrors({ ...errors, read: e.message })
@@ -38,7 +43,7 @@ export function useRecords(user: Optional<Nullable<fire.User>>) {
   async function onCreate(record: Record) {
     try {
       setLoading({ ...loading, create: true })
-      await recordsRef?.push({ ...record, id: uuid() })
+      await recordsRef?.push({ ...record })
       setLoading({ ...loading, create: false })
     } catch (e) {
       setErrors({ ...errors, create: e.message })
@@ -48,9 +53,9 @@ export function useRecords(user: Optional<Nullable<fire.User>>) {
   async function onUpdate(record: Id<Record>) {
     try {
       setLoading({ ...loading, update: true })
-      await recordsRef
-        ?.child(record.id)
-        .set({ ...record, completed: !record.completed })
+      await recordsRef?.update({
+        [`${record.id}`]: { ...record, completed: !record.completed },
+      })
       setLoading({ ...loading, update: false })
     } catch (e) {
       setErrors({ ...errors, update: e.message })
@@ -60,7 +65,14 @@ export function useRecords(user: Optional<Nullable<fire.User>>) {
   async function onDelete(id: IdType) {
     try {
       setLoading({ ...loading, delete: true })
-      await recordsRef?.child(id).remove()
+      console.log()
+      await recordsRef?.update({ [id]: null }, err => {
+        if (err) {
+          throw err
+        }
+
+        setRecords(records.filter(r => r.id !== id))
+      })
       setLoading({ ...loading, delete: false })
     } catch (e) {
       setErrors({ ...errors, delete: e.message })

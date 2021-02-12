@@ -15,6 +15,7 @@ export const LoginPage: React.FC<AuthRoutesProps> = ({ login }) => {
         {'Email'}
       </label>
       <input
+        autoFocus
         id="login"
         value={email}
         onChange={onChange(setEmail)}
@@ -33,6 +34,7 @@ export const LoginPage: React.FC<AuthRoutesProps> = ({ login }) => {
         className="text-field w-100"
       />
       <button
+        disabled={!login || !password}
         className="btn bg-primary text-white w-100"
         onClick={login?.bind(null, email, password)}
       >

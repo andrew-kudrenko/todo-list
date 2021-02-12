@@ -25,11 +25,14 @@ export const RecordsToolbar: React.FC<RecordsToolbarProps> = ({ onCreate }) => {
           placeholder="Новая задача"
         />
         <ButtonCreate
-          onCreate={onCreate.bind(null, {
-            title,
-            completed: false,
-            createdOn: Date.now(),
-          })}
+          onCreate={() => {
+            onCreate({
+              title,
+              completed: false,
+              createdOn: Date.now(),
+            })
+            setTitle('')
+          }}
           disabled={!isValid}
         />
       </div>

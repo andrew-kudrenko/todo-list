@@ -158,6 +158,11 @@ h1, h2, h3, h4, h5, h6,
     cursor: pointer;
     transform: translateY(-1px);
   }
+
+  &:disabled {
+    color: #777;
+    background-color: #ccc;
+  }
 }
 
 /* ----- Navbar ----- */

@@ -16,6 +16,7 @@ export const RegisterPage: React.FC<AuthRoutesProps> = ({ register }) => {
         {'Email'}
       </label>
       <input
+        autoFocus
         id="login"
         value={email}
         onChange={onChange(setEmail)}
