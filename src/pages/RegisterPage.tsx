@@ -11,9 +11,7 @@ export const RegisterPage: React.FC<AuthRoutesProps> = ({ register }) => {
 
   return (
     <AuthLayout>
-      <div className="icon-rounded">
-        <i className="fa"></i>
-      </div>
+      <h2 className="h2">{'Регистрация'}</h2>
       <label htmlFor="login" className="label">
         {'Email'}
       </label>
