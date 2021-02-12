@@ -9,10 +9,10 @@ export type ButtonAddProps = {
 
 export type RecordsListProps = {
   emptyListText?: string
-} & Pick<DataState<Record>, 'loading' | 'onDelete' | 'data'>
+} & Pick<DataState<Record>, 'loading' | 'onDelete' | 'onUpdate' | 'data'>
 
-export type RecordsListItemProps = Omit<Id<Record>, 'completed'> &
-  Pick<RecordsListProps, 'onDelete'> & { index: number }
+export type RecordsListItemProps = Id<Record> &
+  Pick<RecordsListProps, 'onDelete' | 'onUpdate'> & { index: number }
 
 export type RecordsToolbarProps = {
   onCreate: Promisify<(value: Record) => void>
@@ -23,6 +23,8 @@ export type RecordsPageProps = {
 }
 
 export type PrivateRoutesProps = RecordsPageProps & ReturnType<typeof useAuth>
+
+export type AuthRoutesProps = Omit<PrivateRoutesProps, 'user'>
 
 export type NavbarProps = Pick<PrivateRoutesProps, 'logout'>
 

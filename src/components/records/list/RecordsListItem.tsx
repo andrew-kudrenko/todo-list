@@ -2,10 +2,10 @@ import React from 'react'
 import { RecordsListItemProps } from '../../../types/components.types'
 
 export const RecordsListItem: React.FC<RecordsListItemProps> = props => {
-  const { onDelete, index, id, title, createdOn } = props
+  const { onDelete, onUpdate, index, id, title, createdOn, completed } = props
 
   return (
-    <li className="record">
+    <li className={`record ${completed ? 'completed' : ''}`}>
       <div className="d-flex">
         <strong className="record__index mr-1">{`${index}. `}</strong>
         <span className="record__title">{title}</span>

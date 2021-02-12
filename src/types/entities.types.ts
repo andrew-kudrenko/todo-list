@@ -16,7 +16,7 @@ export interface CrudState<T> {
 export interface CrudActions<T extends object> {
   onCreate: Promisify<(value: T) => void>
   onRead: Promisify<(value: T) => Array<Id<T>>>
-  onUpdate: Promisify<(value: Partial<T>) => void>
+  onUpdate: Promisify<(value: Id<T>) => void>
   onDelete: Promisify<(id: IdType) => void>
 }
 

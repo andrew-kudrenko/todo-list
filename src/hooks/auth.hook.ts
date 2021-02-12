@@ -66,6 +66,7 @@ export function useAuth(autoLogin: boolean = true) {
       setRegisterLoading(true)
 
       await firebase.auth().createUserWithEmailAndPassword(email, password)
+      await login(email, password)
 
       setUser(user)
       clearErrors()

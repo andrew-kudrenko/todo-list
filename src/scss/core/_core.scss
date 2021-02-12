@@ -99,12 +99,17 @@ h1, h2, h3, h4, h5, h6,
 .text-field {
   @extend %input;
 
+  font-size: 1.15rem;
+
   border: {
     top: none;
     right: none;
     left: none;
   }
+
 }
+
+.label { @extend .text-primary; }
 
 /* ----- Border ----- */
 
@@ -158,7 +163,7 @@ h1, h2, h3, h4, h5, h6,
 /* ----- Navbar ----- */
 
 .navbar {
-  @extend .d-flex, .justify-center, .bg-primary, .text-white, .p-1, .mb-2;
+  @extend .d-flex, .justify-center, .bg-primary, .text-white, .p-2, .mb-2;
   @include box-shadow(1px, 5px, map-get($colors, "primary"));
 }
 
@@ -191,6 +196,8 @@ h1, h2, h3, h4, h5, h6,
   }
 
   background-color: #fff;
+
+  &.completed { text-decoration: line-through; }
 }
 
 .toolbar {
@@ -204,3 +211,32 @@ h1, h2, h3, h4, h5, h6,
 /* ----- Cursor ----- */
 
 .cursor-pointer { cursor: pointer; }
+
+/* ----- Spinner ----- */
+
+.spinner {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner::after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid map-get($colors, "primary");
+  border-color: map-get($colors, "primary") transparent map-get($colors, "primary") transparent;
+  animation: spinner-rotate 1.2s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

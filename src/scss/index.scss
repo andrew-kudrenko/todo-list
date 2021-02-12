@@ -7,7 +7,6 @@
   align-items: center;
 
   background-color: #fefeff;
-  // background-color: #ddd;
 
   &__navbar,
   &__main {
@@ -17,4 +16,37 @@
   &__main {
     @extend .d-flex-col, .align-items-center;
   }
+}
+
+.auth-page {
+  @extend .d-flex;
+
+  height: 100vh;
+  background: {
+    size: cover;
+    position: center;
+    image: url('https://avatars.mds.yandex.net/get-zen_doc/1866022/pub_5e01fff016ef9000acaaa055_5e090e7bec575b00af10ef92/scale_1200');
+  }
+
+  &__image {
+    flex-grow: 1;
+
+    @media (min-width: 1000px) {
+      flex-grow: 1;
+    }
+  }
+
+  &__main {
+    @extend .p-4;
+    @include box-shadow(2px, 5px, #ccc);
+
+    max-width: 500px;
+    flex-grow: 1;
+    background-color: #fff;
+  }
+}
+
+.loading-page  {
+  @extend .d-flex-col, .justify-center, .align-items-center;
+  height: 100vh;
 }
