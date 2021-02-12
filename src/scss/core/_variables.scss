@@ -1,4 +1,5 @@
 $side-aliases: ("top": "t", "right": "r", "bottom": "b", "left": "l");
+
 $indent-limits: ("min": 1, "max": 5);
 $indent-aliases: ("margin": "m", "padding": "p");
 $indent-value: .5rem;
@@ -9,22 +10,45 @@ $header-sizes: (
   calc(1.3rem + .6vw), 
   calc(1.275rem + .3vw),
   1.25rem,
-  1rem
+  1rem,
 );
 
 $colors: (
-  "primary": #8457c7, 
-  "secondary": #ffdf6d, 
-  "tertiary": #ffbda0, 
-  "quarternary": #c2e7ee
-);
-
-$text-colors: (
-  "primary": #333,
-  "secondary": #ccc,
-  "accent": #fefefe
+  "primary": #297bf6,
+  "secondary": #6c757d,
+  "success": #28a745,
+  "danger": #dc3545,
+  "warning": #ffc107,
+  "info": #17a2b8,
+  "light": #f8f9fa,
+  "dark": #343a40,
+  "white": #fff,
+  "transparent": transparent,
 );
 
 $text-align-variants: ("top", "right", "left", "center", "justify");
 
 $transition-durations: ("slowly": .5, "regulary": .3, "rapidly": .15);
+
+$display-variants: (
+  inline, 
+  inline-block,
+  block,
+  flex,
+  inline-flex,
+  grid,
+  inline-grid,
+);
+
+$justify-content-variants: (
+  center,
+  flex-start,
+  flex-end,
+  space-evenly,
+  space-between,
+  space-around,
+);
+
+$align-items-variants: (
+  center,
+);

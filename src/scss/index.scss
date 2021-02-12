@@ -1,72 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
-@import 'mixins';
-@import 'app';
-@import 'record-list';
-@import 'add-task-menu';
-@import 'loader';
-@import 'auth-page.scss';
+@import 'core/core';
 
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
+.app {
+  @extend .w-100, .d-flex-col;
 
-  box-sizing: inherit;
-}
+  height: 100vh;
+  align-items: center;
 
-:root {
-  box-sizing: border-box;
-  font: {
-    family: 'Roboto', sans-serif;
-    size: 1rem;
+  background-color: #fefeff;
+  // background-color: #ddd;
+
+  &__navbar,
+  &__main {
+    @extend .w-100;
   }
 
-  --app-background-color: #fafafa;
-  --record-background-color: #fff;
-  --primary-color: #c7000a;
-  --divider-color: #ccc;
-  --disabled-color: #eee;
-
-  --font-color-dark: #333;
-  --font-color-light: #fff;
-
-  --trans-dur-quickly: 0.2s;
-  --trans-dur-regular: 0.35s;
-  --trans-dur-slowly: 0.85s;
-
-  --red: #e22523;
-}
-
-.container {
-  max-width: 600px;
-  padding: {
-    left: 1rem;
-    right: 1rem;
-  }
-}
-
-.header {
-  margin: {
-    top: 0.5em;
-    bottom: 0.5em;
-  }
-}
-
-.italic {
-  font-style: italic;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.primary-text {
-  color: var(--primary-color);
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 800px;
+  &__main {
+    @extend .d-flex-col, .align-items-center;
   }
 }

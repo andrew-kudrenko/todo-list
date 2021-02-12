@@ -1,0 +1,206 @@
+@import 'core/normalize';
+@import 'core/mixins';
+
+/* ----- Display ----- */
+
+@each $variant in $display-variants {
+  .d-#{$variant} { display: $variant; }
+}
+
+/* ----- Flex ----- */
+
+.d-flex-col {
+  @extend .d-flex;
+  flex-direction: column;
+}
+
+.d-flex-center
+.d-flex-col-center {
+  @extend .d-flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-col-center { @extend .d-flex-col; }
+
+@each $variant in $align-items-variants {
+  .align-items-#{$variant} { align-items: $variant; }
+}
+
+@each $variant in $justify-content-variants {
+  .justify-#{$variant} { justify-content: $variant; }
+}
+
+/* ----- Padding & Margin ----- */
+
+@for $depth from map-get($indent-limits, "min") through map-get($indent-limits, "max") {
+    $computed: $indent-value * $depth;
+    
+    @each $indent, $indent-alias in $indent-aliases {
+      .#{$indent-alias}x-#{$depth} {
+          #{$indent}-left: $computed;
+          #{$indent}-right: $computed;
+      }
+      
+      .#{$indent-alias}y-#{$depth} {
+          #{$indent}-top: $computed;
+          #{$indent}-bottom: $computed;
+      }
+
+      .#{$indent-alias}-#{$depth} {
+        #{$indent}: $computed;
+      }
+    
+      @each $side, $side-alias in $side-aliases {
+      .#{$indent-alias}#{$side-alias}-#{$depth} {
+        #{$indent}-#{$side}: $computed;
+      }
+    }
+  }
+}
+
+/* ----- Headers ----- */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@for $i from 1 through 6 {
+  h#{$i}, 
+  .h#{$i} { font-size: list-nth($header-sizes, $i); } 
+}
+
+/* ----- Text ----- */
+
+@each $variant in $text-align-variants {
+  .align-#{$variant}{ text-align: $variant };
+}
+
+/* ----- Input ----- */
+
+%input {
+  @extend .p-1, .mb-2;
+
+  outline: none;
+
+  transition: {
+    property: border-color;
+    duration: "#{map-get($transition-durations, "regulary")}s";
+  }
+
+  &:focus { border-color: map-get($colors, "primary"); }
+}
+
+.text-field {
+  @extend %input;
+
+  border: {
+    top: none;
+    right: none;
+    left: none;
+  }
+}
+
+/* ----- Border ----- */
+
+.rounded { border-radius: .25rem; }
+
+.circled { border-radius: 50%; }
+
+/* ----- Width ----- */
+
+@each $i in (25, 50, 75, 100) {
+  .w-#{$i} { width: #{$i}#{"%"}; }
+}
+
+/* ----- Colors ----- */
+
+@each $key, $color in $colors {
+  .bg-#{$key} { background-color: $color }
+
+  .text-#{$key} { color: $color; }
+}
+
+/* ----- Rounded Icon ----- */
+
+.icon-rounded {
+  @extend .m-2, .bg-primary, .circled;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 4rem;
+  height: 4rem;
+
+  i { font-size: 2.25rem; }
+}
+
+/* ----- Buttons ----- */
+
+.btn {
+  @extend %input, .dur-regulary, .rounded;
+
+  border: none;
+  transition-property: transform;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+}
+
+/* ----- Navbar ----- */
+
+.navbar {
+  @extend .d-flex, .justify-center, .bg-primary, .text-white, .p-1, .mb-2;
+  @include box-shadow(1px, 5px, map-get($colors, "primary"));
+}
+
+/* ----- Container ----- */
+
+.container {
+  width: 100%;
+  max-width: 500px;
+
+  @media (min-width: 900px) { max-width: 600px; }
+
+  @media (min-width: 1200px) { max-width: 800px; }
+}
+
+/* ----- Transitions ----- */
+
+@each $variant, $time in $transition-durations {
+  .dur-#{$variant} { transition-duration: $time#{"s"}; }
+}
+
+/* ----- Records ----- */
+
+.record {
+  @extend .d-flex, .justify-space-between, .p-2, .mb-2, .rounded, .dur-rapidly;
+  @include box-shadow(1px, 5px,#777);
+
+  &:hover { 
+    transition-property: transform;
+    transform: translateX(5px); 
+  }
+
+  background-color: #fff;
+}
+
+.toolbar {
+  &__input .text-field {
+    @extend .dur-regulary;
+    min-width: 300px;
+    transition-property: border-color;
+  }
+}
+
+/* ----- Cursor ----- */
+
+.cursor-pointer { cursor: pointer; }

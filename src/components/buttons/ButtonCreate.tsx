@@ -5,8 +5,8 @@ export const ButtonCreate: React.FC<ButtonAddProps> = ({
   onCreate,
   ...rest
 }) => (
-  <button className="add-task-menu__button" {...rest} onClick={onCreate}>
-    <i className="fa fa-plus-square-o add-task-menu__button-icon" />
-    <span className="add-task-menu__button-label">{'Добавить'}</span>
+  <button className="btn bg-primary text-white" {...rest} onClick={onCreate}>
+    <i className="fa fa-plus-square-o mr-1" />
+    <span className="">{'Добавить'}</span>
   </button>
 )

@@ -4,7 +4,7 @@ import { PrivateRoutes } from '../../routes/PrivateRoutes'
 import { AuthRoutes } from '../../routes/AuthRoutes'
 
 export const App: React.FC = () => {
-  const { user } = useAuth()
+  const { user, ...auth } = useAuth()
 
-  return user ? <PrivateRoutes user={user} /> : <AuthRoutes />
+  return user ? <PrivateRoutes user={user} {...auth} /> : <AuthRoutes />
 }

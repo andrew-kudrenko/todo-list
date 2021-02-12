@@ -10,7 +10,7 @@ export const RecordsPage: React.FC<RecordsPageProps> = ({ user }) => {
   return (
     <>
       <RecordsToolbar {...rest} />
-      <RecordsList data={records} {...rest} />
+      <RecordsList data={records ? records : []} {...rest} />
     </>
   )
 }

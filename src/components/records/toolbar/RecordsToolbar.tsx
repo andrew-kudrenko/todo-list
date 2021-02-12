@@ -14,16 +14,24 @@ export const RecordsToolbar: React.FC<RecordsToolbarProps> = ({ onCreate }) => {
   const isValid = validate(title, [longerThan(0), shorterThan(100)])
 
   return (
-    <div className="add-task-menu">
-      <div className="add-task-menu__editor">
+    <div className="toolbar w-100 d-flex justify-center">
+      <div className="toolbar__input">
         <input
+          autoFocus
           type="text"
-          className="add-task-menu__editor-input"
+          className="text-field mr-2"
           onChange={onChange(setTitle)}
           value={title}
           placeholder="Новая задача"
         />
-        <ButtonCreate onCreate={onCreate} disabled={!isValid} />
+        <ButtonCreate
+          onCreate={onCreate.bind(null, {
+            title,
+            completed: false,
+            createdOn: Date.now(),
+          })}
+          disabled={!isValid}
+        />
       </div>
     </div>
   )

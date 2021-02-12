@@ -26,7 +26,7 @@ export function useRecords(user: Optional<Nullable<fire.User>>) {
       recordsRef.on('value', snapshot => {
         try {
           setLoading({ ...loading, read: true })
-          setRecords(snapshot.val())
+          setRecords([...Object.values(<Array<any>>snapshot.val())])
           setLoading({ ...loading, read: false })
         } catch (e) {
           setErrors({ ...errors, read: e.message })

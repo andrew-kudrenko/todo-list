@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes } from 'react'
 import { DataState, Record } from './entities.types'
 import { Id, Promisify } from './utility.types'
+import { useAuth } from '../hooks/auth.hook'
 
 export type ButtonAddProps = {
   onCreate: Promisify<() => void>
@@ -21,4 +22,8 @@ export type RecordsPageProps = {
   user: firebase.default.User
 }
 
-export type PrivateRoutesProps = RecordsPageProps
+export type PrivateRoutesProps = RecordsPageProps & ReturnType<typeof useAuth>
+
+export type NavbarProps = Pick<PrivateRoutesProps, 'logout'>
+
+export type BaseLayoutProps = NavbarProps

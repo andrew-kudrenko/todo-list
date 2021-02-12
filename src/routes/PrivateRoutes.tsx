@@ -4,8 +4,11 @@ import { BaseLayout } from '../components/layouts/BaseLayout'
 import { RecordsPage } from '../pages/RecordsPage'
 import { PrivateRoutesProps } from '../types/components.types'
 
-export const PrivateRoutes: React.FC<PrivateRoutesProps> = ({ user }) => (
-  <BaseLayout>
+export const PrivateRoutes: React.FC<PrivateRoutesProps> = ({
+  user,
+  logout,
+}) => (
+  <BaseLayout logout={logout}>
     <Switch>
       <Route exact path="/records">
         <RecordsPage user={user} />

@@ -5,15 +5,17 @@ export const RecordsListItem: React.FC<RecordsListItemProps> = props => {
   const { onDelete, index, id, title, createdOn } = props
 
   return (
-    <li className="record-list-item">
-      <div className="record-list-item__wrapper">
-        <strong className="record-list-item__index">{index}</strong>
-        <span className="record-list-item__title">{title}</span>
+    <li className="record">
+      <div className="d-flex">
+        <strong className="record__index mr-1">{`${index}. `}</strong>
+        <span className="record__title">{title}</span>
       </div>
-      <div className="record-list-item__wrapper">
-        <span className="record-list-item__date italic">{createdOn}</span>
+      <div className="d-flex">
+        <span className="record__date text-italic">
+          {new Date(createdOn).toLocaleString()}
+        </span>
         <i
-          className="record-list-item__button fa fa-trash-o"
+          className="record__btn ml-2 fa fa-trash-o"
           onClick={onDelete.bind(null, id)}
         ></i>
       </div>
